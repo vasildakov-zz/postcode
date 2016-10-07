@@ -7,6 +7,7 @@
  */
 namespace VasilDakov\Postcode;
 
+use VasilDakov\Postcode\Validator;
 use VasilDakov\Postcode\Exception;
 
 class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
@@ -76,9 +77,10 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
     /**
      * Constructor
      *
-     * @param string $value  e.g. "AA9A 9AA"
+     * @param string    $value          e.g. "AA9A 9AA"
+     * @param Validator $validator
      */
-    public function __construct($value)
+    public function __construct($value, Validator $validator = null)
     {
         if (!is_string($value)) {
             throw new Exception\InvalidArgumentException;
