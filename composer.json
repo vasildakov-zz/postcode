@@ -19,6 +19,11 @@
         "satooshi/php-coveralls": "~1.0",
         "phpunit/php-code-coverage": "^3.0|^4.0"
     },
+    "suggest": {
+        "vasildakov/postcode-validator": "For validating UK postcode",
+        "vasildakov/postcode-parser": "For parsing UK postcode",
+        "vasildakov/postcode-doctrine": "For integration with Doctrine ORM"
+    },
     "autoload": {
         "psr-4": {
             "VasilDakov\\Postcode\\": "src/"
@@ -26,7 +31,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "VasilDakov\\Postcode\\": "test/"
+            "VasilDakov\\Postcode\\": "tests/"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

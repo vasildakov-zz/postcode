@@ -48,7 +48,7 @@ class PostcodeTest extends \PHPUnit_Framework_TestCase
         $value = 'TW1 3QS';
         $postcode = new Postcode($value);
 
-        self::assertEquals($value, $postcode->toNative());
+        self::assertEquals($value, $postcode->toString());
     }
 
     /**
@@ -186,15 +186,15 @@ class PostcodeTest extends \PHPUnit_Framework_TestCase
 
     public function testFromNative()
     {
-        $postcode = Postcode::fromNative('TW8 8FB');
+        $postcode = Postcode::fromString('TW8 8FB');
 
         self::assertInstanceOf(Postcode::class, $postcode);
     }
 
 
-    public function testToNative()
+    public function testToString()
     {
-        self::assertEquals($this->value, $this->postcode->toNative());
+        self::assertEquals($this->value, $this->postcode->toString());
     }
 
 
@@ -208,17 +208,6 @@ class PostcodeTest extends \PHPUnit_Framework_TestCase
         self::assertEquals($expected, Postcode::isValid($string));
     }
 
-
-    /**
-     * @test
-     */
-    public function testToString()
-    {
-        $string = (string) $this->postcode;
-
-        self::assertInternalType('string', $string);
-        self::assertEquals($this->value, $string);
-    }
 
     /**
      * @test

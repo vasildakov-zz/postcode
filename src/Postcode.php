@@ -15,48 +15,50 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
      * Regular expression pattern for Outward code
      */
 
-    const REGEXP_POSTCODE_UKGOV = "/^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) [0-9][A-Za-z]{2})$/";
+    const REGEXP_POSTCODE_UKGOV = "
+    /^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|
+    (([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) [0-9][A-Za-z]{2})$/";
 
     /**
      * Regular expression pattern for Outward code
      */
-    const REGEXP_POSTCODE     = "/^[A-Za-z]{1,2}\d[a-z\d]?\s*\d[A-Za-z]{2}$/i";
+    const REGEXP_POSTCODE = "/^[A-Za-z]{1,2}\d[a-z\d]?\s*\d[A-Za-z]{2}$/i";
 
 
     /**
      * Regular expression pattern for Outward code
      */
-    const REGEXP_OUTWARD     = "/\d[A-Za-z]{1,2}$/i";
+    const REGEXP_OUTWARD = "/\d[A-Za-z]{1,2}$/i";
 
 
     /**
      * Regular expression pattern for Inward code
      */
-    const REGEXP_INWARD      = "/\d[A-Za-z]{2}$/i";
+    const REGEXP_INWARD = "/\d[A-Za-z]{2}$/i";
 
 
     /**
      * Regular expression pattern for Area code
      */
-    const REGEXP_AREA        = "/^[A-Za-z]{1,2}/i";
+    const REGEXP_AREA = "/^[A-Za-z]{1,2}/i";
 
 
     /**
      * Regular expression pattern for Sector code
      */
-    const REGEXP_SECTOR      = "/^[A-Za-z]{1,2}\d[A-Za-z\d]?\s*\d/i";
+    const REGEXP_SECTOR = "/^[A-Za-z]{1,2}\d[A-Za-z\d]?\s*\d/i";
 
 
     /**
      * Regular expression pattern for Unit code
      */
-    const REGEXP_UNIT        =  "/[A-Za-z]{2}$/i";
+    const REGEXP_UNIT = "/[A-Za-z]{2}$/i";
 
 
     /**
      * Regular expression pattern for District code
      */
-    const REGEXP_DISTRICT    = "/^([A-Za-z]{1,2}\d)([A-Za-z])$/i";
+    const REGEXP_DISTRICT = "/^([A-Za-z]{1,2}\d)([A-Za-z])$/i";
 
 
     /**
@@ -78,6 +80,10 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
      */
     public function __construct($value)
     {
+        if (!is_string($value)) {
+            throw new Exception\InvalidArgumentException;
+        }
+
         if (!self::isValid($value)) {
             throw new Exception\InvalidArgumentException;
         }
@@ -245,11 +251,15 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
     /**
      * Returns a object taking PHP native value(s) as argument(s).
      *
-     * @return Postcode
+     * @param  string  $value
+     * @return static
      */
-    public static function fromNative()
+    public static function fromString($value)
     {
-        $value = func_get_arg(0);
+        if (!is_string($value)) {
+            throw new InvalidArgumentException('$value must be a string');
+        }
+
         return new static($value);
     }
 
@@ -259,9 +269,9 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
      *
      * @return string
      */
-    public function toNative()
+    public function toString()
     {
-        return $this->value;
+        return (string) $this->value;
     }
 
 
@@ -280,15 +290,12 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
     /**
      * Compare two Postcode and tells whether they can be considered equal
      *
-     * @todo Replace toNative with toString
-     * @todo strcmp — Binary safe string comparison
-     *
-     * @param  Postcode $object
+     * @param  Postcode $other
      * @return bool
      */
     public function compareTo(Postcode $other)
     {
-        return (strcmp($this->toNative(), $other->toNative()) !== 0);
+        return (strcmp($this->toString(), $other->toString()) !== 0);
     }
 
 
@@ -319,7 +326,7 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
      */
     public function __toString()
     {
-        return (string) $this->normalise();
+        return $this->toString();
     }
 
 
@@ -356,7 +363,7 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'postcode' => (string) $this->normalise()
+            'postcode' => $this->toString()
         ];
     }
 }

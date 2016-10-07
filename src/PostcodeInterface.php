@@ -10,67 +10,15 @@ namespace VasilDakov\Postcode;
 interface PostcodeInterface
 {
     /**
-     * Normalise Postcode
-     *
-     * @return String
+     * @param  string $value
+     * @return static
      */
-    public function normalise();
-
+    public static function fromString($value);
 
     /**
-     * Outward code
-     *
-     * @return String
+     * @return string
      */
-    public function outward();
-
-
-    /**
-     * Inward code
-     *
-     * @return String
-     */
-    public function inward();
-
-
-    /**
-     * Postcode area
-     *
-     * @return String
-     */
-    public function area();
-
-
-    /**
-     * Postcode district
-     *
-     * @return String|null
-     */
-    public function district();
-
-
-    /**
-     * Postcode sector
-     *
-     * @return String|null
-     */
-    public function sector();
-
-
-    /**
-     * Postcode unit
-     *
-     * @return String
-     */
-    public function unit();
-
-
-    /**
-     * Subdistrict
-     *
-     * @return String|null
-     */
-    public function subdistrict();
+    public function toString();
 
 
     /**
