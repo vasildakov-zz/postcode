@@ -19,7 +19,7 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
 
 
     /**
-     * @var string $value
+     * @var ValidatorInterface $value
      */
     protected $validator;
 
@@ -27,8 +27,9 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
     /**
      * Constructor
      *
-     * @param string    $value          e.g. "AA9A 9AA"
-     * @param Validator $validator
+     * @param  string|integer            $value
+     * @param  ValidatorInterface        $validator
+     * @throws InvalidArgumentException
      */
     public function __construct($value, ValidatorInterface $validator)
     {
@@ -39,17 +40,6 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
         }
 
         $this->value = $value;
-    }
-
-
-    /**
-     * Returns the value of the string
-     *
-     * @return string
-     */
-    public function toString()
-    {
-        return (string) $this->value;
     }
 
 
@@ -66,7 +56,7 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
 
 
     /**
-     * Compare two Postcode and tells whether they can be considered equal
+     * Compare two Postcodes and tells whether they can be considered equal
      *
      * @param  Postcode $other
      * @return bool
@@ -74,6 +64,16 @@ class Postcode implements PostcodeInterface, \Serializable, \JsonSerializable
     public function compareTo(Postcode $other)
     {
         return (strcmp($this->toString(), $other->toString()) !== 0);
+    }
+
+    /**
+     * Returns the value of the string
+     *
+     * @return string
+     */
+    public function toString()
+    {
+        return (string) $this->value;
     }
 
 

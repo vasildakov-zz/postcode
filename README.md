@@ -28,12 +28,10 @@ Here is a minimal example of a `composer.json` file that just defines a dependen
 
 ```php
 use VasilDakov\Postcode\Postcode;
+use VasilDakov\Postcode\Validator;
 
 // Create a Postcode
-$postcode = new Postcode('EC1V 9LB');
-
-// Validate Postcode value
-print $postcode->valid();
+$postcode = new Postcode('EC1V 9LB', new Validator('UK'));
 
 ```
 
