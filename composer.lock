@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "aefcb140ee02091e1909023b667eea0c",
-    "content-hash": "8227a422c91fd8efc16cca76df9df8c2",
+    "hash": "00f8c2683cf1c66def2a2777c7250651",
+    "content-hash": "e041c693561272224aff82cc73d31b23",
     "packages": [
         {
             "name": "vasildakov/postcode-validator",
-            "version": "1.0.0",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vasildakov/postcode-validator.git",
-                "reference": "375dc4094d30f7d4b87c330919775a0890bb8060"
+                "reference": "a38e5318b6c278ee374fc54a4083d2920f2ff4d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vasildakov/postcode-validator/zipball/375dc4094d30f7d4b87c330919775a0890bb8060",
-                "reference": "375dc4094d30f7d4b87c330919775a0890bb8060",
+                "url": "https://api.github.com/repos/vasildakov/postcode-validator/zipball/a38e5318b6c278ee374fc54a4083d2920f2ff4d2",
+                "reference": "a38e5318b6c278ee374fc54a4083d2920f2ff4d2",
                 "shasum": ""
             },
             "require": {
@@ -29,6 +29,11 @@
                 "phpunit/phpunit": "^4.7|^5.0",
                 "satooshi/php-coveralls": "~1.0",
                 "squizlabs/php_codesniffer": "~2.3"
+            },
+            "suggest": {
+                "vasildakov/postcode": "For creating Postcode value object",
+                "vasildakov/postcode-doctrine": "For integration postcode with Doctrine ORM",
+                "vasildakov/postcode-parser": "For parsing Postcodes"
             },
             "type": "library",
             "autoload": {
@@ -46,16 +51,15 @@
                     "email": "vasildakov@gmail.com"
                 }
             ],
-            "description": "UK Postcode Validator",
+            "description": "Postcode Validator",
             "homepage": "https://github.com/vasildakov/postcode-validator",
             "keywords": [
                 "php",
                 "post",
                 "postcode",
-                "uk",
                 "validator"
             ],
-            "time": "2016-10-06 00:28:11"
+            "time": "2016-10-09 19:25:35"
         }
     ],
     "packages-dev": [
@@ -705,16 +709,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.6.0",
+            "version": "5.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a7f2db56518e50ab92f28f739810dfad2f223b6b"
+                "reference": "60c32c5b5e79c2248001efa2560f831da11cc2d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a7f2db56518e50ab92f28f739810dfad2f223b6b",
-                "reference": "a7f2db56518e50ab92f28f739810dfad2f223b6b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/60c32c5b5e79c2248001efa2560f831da11cc2d7",
+                "reference": "60c32c5b5e79c2248001efa2560f831da11cc2d7",
                 "shasum": ""
             },
             "require": {
@@ -783,20 +787,20 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-10-06 15:20:39"
+            "time": "2016-10-07 13:03:26"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "03500345483e1e17b52e2e4d34a89c9408ab2902"
+                "reference": "238d7a2723bce689c79eeac9c7d5e1d623bb9dc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/03500345483e1e17b52e2e4d34a89c9408ab2902",
-                "reference": "03500345483e1e17b52e2e4d34a89c9408ab2902",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/238d7a2723bce689c79eeac9c7d5e1d623bb9dc2",
+                "reference": "238d7a2723bce689c79eeac9c7d5e1d623bb9dc2",
                 "shasum": ""
             },
             "require": {
@@ -842,7 +846,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-10-04 11:03:26"
+            "time": "2016-10-09 07:01:45"
         },
         {
             "name": "psr/log",

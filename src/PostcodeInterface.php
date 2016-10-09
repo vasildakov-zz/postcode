@@ -9,11 +9,6 @@ namespace VasilDakov\Postcode;
 
 interface PostcodeInterface
 {
-    /**
-     * @param  string $value
-     * @return static
-     */
-    public static function fromString($value);
 
     /**
      * @return string
@@ -33,11 +28,4 @@ interface PostcodeInterface
      * @return bool
      */
     public function compareTo(Postcode $other);
-
-
-    /**
-     * @param  String $value
-     * @return bool
-     */
-    public static function isValid($value);
 }
