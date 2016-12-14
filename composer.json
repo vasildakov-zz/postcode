@@ -1,6 +1,6 @@
 {
     "name": "vasildakov/postcode",
-    "description": "UK Postcode",
+    "description": "UK Postcode ValueObject",
     "keywords": ["uk", "post", "postcode", "php"],
     "homepage": "https://github.com/vasildakov/postcode",
     "license": "MIT",
