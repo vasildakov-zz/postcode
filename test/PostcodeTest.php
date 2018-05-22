@@ -300,6 +300,11 @@ class PostcodeTest extends \PHPUnit_Framework_TestCase
             ['TW88FB',   true],
             ['ABC 123',  false],
             ['XYZ 987',  false],
+            ['L70 2UD', true],
+            ['GU28 0HH', true],
+            ['XM4 5HQ', true],
+            ['W1A 1AA', true],
+            ['EC3V 0AS', true],
         ];
     }
 }
